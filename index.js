@@ -5,16 +5,8 @@ import cors from 'cors';
 import router from './route.js';
 
 const app = express();
-const corsOptions = {
-    origin: ['https://ask-ai-two.vercel.app/', 'http://localhost:3000/'], // Add all allowed origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-};
 
-app.use(cors(corsOptions));
-
-// Optional: Handle preflight requests (OPTIONS method)
-app.options('*', cors(corsOptions));
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 
